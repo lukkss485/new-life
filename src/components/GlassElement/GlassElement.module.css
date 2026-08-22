@@ -1,0 +1,10 @@
+.box {
+    backdrop-filter: saturate(200%);
+    -webkit-backdrop-filter: saturate(200%);
+}
+
+.boxShaderStateOn {
+    /* box-shadow:inset 0px -1.6px 0px -2px hsla(0, 0%, 50%, 0.2),inset 0px -1px 0px 0px hsla(0, 0%, 50%, 0.5),inset 0px 1px 0px 0px hsla(0, 0%, 63%, 0.5),inset 0px 1.75px 0px -1px hsla(0, 0%, 100%, 0.5),inset 0px -3px 5px 0px hsla(0, 0%, 0%, 0.5),0px 7px 5px 0px hsla(0, 0%, 0%, 0.5); */
+    backdrop-filter: saturate(200%);
+    -webkit-backdrop-filter: saturate(200%);
+}
