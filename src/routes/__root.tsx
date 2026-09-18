@@ -2,12 +2,13 @@ import {
   HeadContent,
   Scripts,
   createRootRouteWithContext,
+  useMatches,
 } from '@tanstack/react-router'
 import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools'
 import { TanStackDevtools } from '@tanstack/react-devtools'
 import Footer from '../components/Footer'
 import Header from '../components/Header'
-
+import { Dock } from '#/components/dock'
 import TanStackQueryDevtools from '../integrations/tanstack-query/devtools'
 
 import appCss from '../styles.css?url'
@@ -45,28 +46,22 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
 })
 
 function RootDocument({ children }: { children: React.ReactNode }) {
+  const matches = useMatches()
+  const isPrivateRoute = matches.some((match) =>
+    match.routeId.includes('(private)')
+  )
+
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
         <HeadContent />
       </head>
-      <body className="font-sans antialiased [overflow-wrap:anywhere] bg-background w-[100vw] h-[100vh]">
-        <Header />
+      <body className="font-sans antialiased [overflow-wrap:anywhere] bg-background w-full h-[100vh] overflow-x-hidden">
+        {isPrivateRoute ? <Dock /> : (<><Header /> <Footer /></>)}
         {children}
-        <Footer />
-        <TanStackDevtools
-          config={{
-            position: 'bottom-right',
-          }}
-          plugins={[
-            {
-              name: 'Tanstack Router',
-              render: <TanStackRouterDevtoolsPanel />,
-            },
-            TanStackQueryDevtools,
-          ]}
-        />
+        
+
         <Scripts />
       </body>
     </html>

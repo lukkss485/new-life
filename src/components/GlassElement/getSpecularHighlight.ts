@@ -1,4 +1,4 @@
-import { GlassElementProps } from "./GlassElement"
+
 
 export function getSpecularHighlight(radius: number, largura: number, altura: number): string {
   const borderRadius = radius ?? 33.5;

@@ -30,9 +30,10 @@ export const getDisplacementMap = ({
 
   return (
     "data:image/svg+xml;utf8," +
-    encodeURIComponent(`<svg height="${safeHeight}" width="${safeWidth}" viewBox="0 0 ${safeWidth} ${safeHeight}" xmlns="http://www.w3.org/2000/svg">
+    encodeURIComponent(`<svg height="${safeHeight}" width="${safeWidth}" viewBox="0 0 ${safeWidth} ${safeHeight}" xmlns="http://www.w3.org/2000/svg" class="z">
     <style>
         .mix { mix-blend-mode: screen; }
+        .z {z-index: 0;}
     </style>
     <defs>
         <linearGradient 
@@ -57,7 +58,7 @@ export const getDisplacementMap = ({
     </defs>
     <rect x="0" y="0" height="${safeHeight}" width="${safeWidth}" fill="#808000" />
     <g filter="blur(1px)">
-      <rect x="0" y="0" height="${safeHeight}" width="${safeWidth}" fill="#000080" />
+      <rect x="0" y="0" height="${safeHeight}" width="${safeWidth}" fill="#000000" />
       <rect x="0" y="0" height="${safeHeight}" width="${safeWidth}" fill="url(#Y)" class="mix" />
       <rect x="0" y="0" height="${safeHeight}" width="${safeWidth}" fill="url(#X)" class="mix" />
       ${innerShape}
