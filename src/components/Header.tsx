@@ -126,6 +126,7 @@ export default function Header({...props}: React.ComponentProps<"div">) {
 
   // --- DESKTOP LAYOUT ---
   return (
+    <>
     <header className="fixed inset-x-0 top-0 z-50 px-4 pt-4 sm:px-6" {...props}>
       <GlassElement
         autoSize
@@ -187,6 +188,7 @@ export default function Header({...props}: React.ComponentProps<"div">) {
         </nav>
       </GlassElement>
     </header>
+    </>
   );
 }
 

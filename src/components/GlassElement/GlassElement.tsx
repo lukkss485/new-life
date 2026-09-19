@@ -205,7 +205,7 @@ export const GlassElement = ({
   width = "auto",
   depth = 5,
   radius = 0,
-  strength,
+  strength = null,
   chromaticAberration,
   blur,
   nonChromiumBlur = 24,
@@ -366,6 +366,10 @@ export const GlassElement = ({
   const _chromaticAberration = activePreset?.chromaticAberration ?? chromaticAberration ?? defaults.chromaticAberration;
   const _strength = activePreset?.strength ?? strength ?? defaults.distortionStrength;
 
+  if (_strength = 0){
+
+  }
+
   const computedBlur = isChromium ? effectiveBlur : effectiveBlur * 2.5;
 
   const displacementFilterUrl = useMemo(() => {
@@ -375,7 +379,7 @@ export const GlassElement = ({
       width: effectiveWidth + 1,
       radius: effectiveRadiusNum,
       depth: effectiveDepth,
-      strength: _strength,
+      strength: _strength ,
       chromaticAberration: _chromaticAberration,
       path,
     });

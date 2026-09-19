@@ -6,7 +6,7 @@ export type DisplacementOptions = {
         radius?: number | 0;   // agora opcional
         path?: string;      // novo: SVG path "d", nas mesmas coordenadas do viewBox 0 0 width height
         depth: number;
-        strength?: number;
+        strength?: number | null;
         chromaticAberration?: number;
         /**
          * Quanto mais um ponto da imagem está afastado do centro no eixo X
@@ -104,7 +104,7 @@ export const getDisplacementFilter = ({
                 transform-origin="center"
                 in="SourceGraphic"
                 in2="${mapRef}"
-                scale="${strength + chromaticAberration * 2}"
+                scale="${strength}"
                 xChannelSelector="${a1}"
                 yChannelSelector="${a2}"
             />
@@ -119,7 +119,7 @@ export const getDisplacementFilter = ({
             <feDisplacementMap
                 in="SourceGraphic"
                 in2="${mapRef}"
-                scale="${strength + chromaticAberration}"
+                scale="${}"
                 xChannelSelector="${b1}"
                 yChannelSelector="${b2}"
             />
