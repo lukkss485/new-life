@@ -20,7 +20,7 @@
 | `height` | `number \| string` | `'auto'` | Height of the glass container. |
 | `radius` | `number \| string` | `0` | Corner rounding. Accepts pixels (`16`) or CSS strings (`"50%"`, `"1rem 2rem"`). |
 | `depth` | `number` | `5` | Refraction depth intensity of the liquid distortion effect. |
-| `strength` | `number` | – | Distortion strength factor. |
+| `strength` | `number \| string` | – | Distortion strength factor. |
 | `blur` | `number` | – | Backdrop blur intensity. |
 | `tintColor` | `string` | `"0 0% 100%"` | Base background tint color in HSL format. |
 | `glassOpacity` | `number` | – | Opacity factor for the glass pane background. |
